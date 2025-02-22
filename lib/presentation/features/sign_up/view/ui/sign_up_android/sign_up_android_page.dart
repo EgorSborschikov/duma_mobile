@@ -1,18 +1,17 @@
-import 'package:duma/presentation/features/onboard/onboard.dart';
 import 'package:flutter/material.dart';
 import '../../../../settings/view/ui/settings_android/settings_android_page.dart';
-import '../../../../sign_up/view/ui/sign_up_android/sign_up_android_page.dart';
+import '../../../../sign_in/view/ui/sign_in_android/sign_in_android_page.dart';
 
-class SignInAndroidPage extends StatefulWidget{
-  const SignInAndroidPage({super.key});
+class SignUpAndroidPage extends StatefulWidget{
+  const SignUpAndroidPage({super.key});
 
   @override
-  State<SignInAndroidPage> createState() => _SignInAndroidPageState();
+  State<SignUpAndroidPage> createState() => _SignUpAndroidPageState();
 }
 
-class _SignInAndroidPageState extends State<SignInAndroidPage> {
+class _SignUpAndroidPageState extends State<SignUpAndroidPage> {
   bool _isObscure = true;
-
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -23,7 +22,7 @@ class _SignInAndroidPageState extends State<SignInAndroidPage> {
           onPressed: () {
             Navigator.push(
               context,
-              MaterialPageRoute(builder: (context) => OnboardingPages()),
+              MaterialPageRoute(builder: (context) => SignInAndroidPage()),
             );
           }, 
           icon: Icon(Icons.arrow_back),
@@ -38,7 +37,7 @@ class _SignInAndroidPageState extends State<SignInAndroidPage> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 const SizedBox(height: 110),
-                Text('АВТОРИЗАЦИЯ',
+                Text('РЕГИСТРАЦИЯ',
                   style: TextStyle(
                     fontFamily: 'Ubuntu',
                     fontWeight: FontWeight.bold,
@@ -48,7 +47,27 @@ class _SignInAndroidPageState extends State<SignInAndroidPage> {
                 ),
                 const SizedBox(height: 28),
                 TextField(
-                  //controller: ,
+                  decoration: InputDecoration(
+                    fillColor: Colors.black,
+                    labelText: 'Имя',
+                    labelStyle: TextStyle(
+                      fontFamily: 'Roboto',
+                      fontWeight: FontWeight.normal,
+                      fontSize: 12,
+                      color: Colors.black
+                    ),
+                    border: OutlineInputBorder(
+                      borderSide: BorderSide(color: Colors.black), 
+                      borderRadius: BorderRadius.circular(10)
+                    ),
+                      focusedBorder: OutlineInputBorder(
+                        borderSide: BorderSide(color: Colors.black), 
+                        borderRadius: BorderRadius.circular(10)
+                    ),
+                  ),
+                ),
+                const SizedBox(height: 15),
+                TextField(
                   decoration: InputDecoration(
                     fillColor: Colors.black,
                     labelText: 'Email',
@@ -159,7 +178,7 @@ class _SignInAndroidPageState extends State<SignInAndroidPage> {
                           ),
                         ),
                         child: Text(
-                          'Войти',
+                          'Зарегистрироваться',
                           style: TextStyle(
                             fontFamily: 'Roboto',
                             fontWeight: FontWeight.bold,
@@ -174,7 +193,7 @@ class _SignInAndroidPageState extends State<SignInAndroidPage> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Text(
-                            'Нет аккаунта?',
+                            'Уже есть аккаунт?',
                             style: TextStyle(
                               fontFamily: 'Roboto',
                               fontWeight: FontWeight.w400,
@@ -187,11 +206,11 @@ class _SignInAndroidPageState extends State<SignInAndroidPage> {
                             onPressed: () {
                               Navigator.push(
                                 context,
-                                MaterialPageRoute(builder: (context) => SignUpAndroidPage()),
+                                MaterialPageRoute(builder: (context) => SignInAndroidPage()),
                               );
                             }, 
                             child: Text(
-                              'Создайте его!',
+                              'Войдите!',
                               style: TextStyle(
                                 fontFamily: 'Roboto',
                                 fontWeight: FontWeight.w600,

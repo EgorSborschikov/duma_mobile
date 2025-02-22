@@ -1,23 +1,32 @@
 import 'dart:io';
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
 import '../../../../settings/view/ui/settings_ios/settings_ios_page.dart';
 
-class SignInIosPage extends StatefulWidget {
-  const SignInIosPage({super.key});
+class SignUpIosPage extends StatefulWidget {
+  const SignUpIosPage({super.key});
 
   @override
-  State<SignInIosPage> createState() => _SignInIosPageState();
+  State<SignUpIosPage> createState() => _SignInIosPageState();
 }
 
-class _SignInIosPageState extends State<SignInIosPage> {
+class _SignInIosPageState extends State<SignUpIosPage> {
   bool _isObscure = true;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        leading: IconButton(
+          onPressed: () {
+
+          }, 
+          icon: Icon(
+            CupertinoIcons.back,
+            color: Color(0xFF5727CE),
+          ),
+        ),
+      ),
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 16.0),
@@ -26,12 +35,12 @@ class _SignInIosPageState extends State<SignInIosPage> {
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                const SizedBox(height: 150),
+                const SizedBox(height: 110),
                 Center(
                   child: Column(
                     children: [
                       Text(
-                        'АВТОРИЗАЦИЯ',
+                        'РЕГИСТРАЦИЯ',
                         style: TextStyle(
                           fontFamily: 'San Francisco',
                           fontWeight: FontWeight.bold,
@@ -40,6 +49,26 @@ class _SignInIosPageState extends State<SignInIosPage> {
                         ),
                       ),
                       const SizedBox(height: 28),
+                      Container(
+                        height: 50,
+                        decoration: BoxDecoration(
+                          color: CupertinoColors.systemGrey6,
+                          borderRadius: BorderRadius.circular(8.0),
+                        ),
+                        child: CupertinoTextField(
+                          prefix: Text(
+                            'Имя:',
+                            style: const TextStyle(
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                          placeholder: 'Введите Имя',
+                          padding: const EdgeInsets.symmetric(horizontal: 16),
+                          decoration: const BoxDecoration(
+                          ),
+                        ),
+                      ),
+                      const SizedBox(height: 16),
                       Container(
                         height: 50,
                         decoration: BoxDecoration(
@@ -148,7 +177,7 @@ class _SignInIosPageState extends State<SignInIosPage> {
                                       );
                                     },
                                     child: Text(
-                                      'Войти',
+                                      'Зарегистрироваться',
                                       style: TextStyle(
                                         fontFamily: 'Ubuntu',
                                         fontWeight: FontWeight.normal,
@@ -166,7 +195,7 @@ class _SignInIosPageState extends State<SignInIosPage> {
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 Text(
-                                  'Нет аккаунта?',
+                                  'Уже есть аккаунт?',
                                   style: TextStyle(
                                     fontFamily: 'Ubuntu',
                                     fontWeight: FontWeight.w400,
@@ -180,7 +209,7 @@ class _SignInIosPageState extends State<SignInIosPage> {
 
                                   }, 
                                   child: Text(
-                                    'Создайте его!',
+                                    'Войдите!',
                                     style: TextStyle(
                                       fontFamily: 'Ubuntu',
                                       fontWeight: FontWeight.w600,

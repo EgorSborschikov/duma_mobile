@@ -1,17 +1,12 @@
 import 'package:device_preview/device_preview.dart';
-import 'package:duma/presentation/features/onboard/onboard.dart';
-import 'package:duma/presentation/features/settings/view/ui/settings_ios/settings_ios_page.dart';
-import 'package:duma/presentation/features/sign_in/view/ui/sign_in_ios/sign_in_ios_page.dart';
 import 'package:flutter/material.dart';
-
-import 'presentation/features/settings/view/ui/settings_android/settings_android_page.dart';
+import 'presentation/features/sign_up/view/ui/sign_up_ios/sign_up_ios_page.dart';
 
 void main() => runApp(
-  /*DevicePreview(
+  DevicePreview(
     enabled: true,
     builder: (context) => Duma()
-  )*/
-  Duma()
+  )
 );
 
 class Duma extends StatelessWidget {
@@ -29,7 +24,7 @@ class Duma extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: OnboardingPages()
+      home: SignUpIosPage()
     );
   }
 }
