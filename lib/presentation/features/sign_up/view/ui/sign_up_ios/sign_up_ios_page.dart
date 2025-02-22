@@ -1,4 +1,6 @@
 import 'dart:io';
+import 'package:duma/presentation/features/forgot_password/view/ui/forgot_password_ios/input_email_ios_page.dart';
+import 'package:duma/presentation/features/sign_in/view/ui/sign_in_ios/sign_in_ios_page.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import '../../../../settings/view/ui/settings_ios/settings_ios_page.dart';
@@ -119,41 +121,30 @@ class _SignInIosPageState extends State<SignUpIosPage> {
                         ),
                       ),
                       const SizedBox(height: 15),
-                      Row(
-                        children: [
-                          Checkbox(
-                            checkColor: Colors.white,
-                            activeColor: Color(0xFF5727CE),
-                            value: true, 
-                            onChanged: (bool? value) {
+                      Center(
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            Checkbox(
+                              checkColor: Colors.white,
+                              activeColor: Color(0xFF5727CE),
+                              value: true, 
+                              onChanged: (bool? value) {
 
-                            }
-                          ),
-                          const SizedBox(width: 5),
-                          Text('Запомнить меня',
-                            style: TextStyle(
-                              fontFamily: 'Ubuntu',
-                              fontWeight: FontWeight.normal,
-                              fontSize: 12,
-                              color: Colors.black
+                              }
                             ),
-                          ),
-                          const Spacer(),
-                          TextButton(
-                            onPressed: () {
-
-                            }, 
-                            child: Text(
-                              'Забыли пароль?',
+                            const SizedBox(width: 5),
+                            Text('Запомнить меня',
                               style: TextStyle(
                                 fontFamily: 'Ubuntu',
                                 fontWeight: FontWeight.normal,
                                 fontSize: 12,
-                                color: Color(0xFF5727EC)
+                                color: Colors.black
                               ),
                             ),
-                          ),
-                        ],
+                          ],
+                        ),
                       ),
                       const SizedBox(height: 50),
                       Center(
@@ -171,9 +162,9 @@ class _SignInIosPageState extends State<SignUpIosPage> {
                                     color: Color(0xFF5727CE),
                                     onPressed: () {
                                       bool isSwitchEnabled = false; // Укажите значение, которое вам нужно передать
-                                        Navigator.push(
-                                          context,
-                                          CupertinoPageRoute(builder: (context) => SettingsIosPage(isSwitchEnabled: isSwitchEnabled)),
+                                      Navigator.push(
+                                        context,
+                                        CupertinoPageRoute(builder: (context) => SettingsIosPage(isSwitchEnabled: isSwitchEnabled)),
                                       );
                                     },
                                     child: Text(
@@ -206,7 +197,10 @@ class _SignInIosPageState extends State<SignUpIosPage> {
                                 const SizedBox(width: 5),
                                 TextButton(
                                   onPressed: () {
-
+                                    Navigator.push(
+                                      context,
+                                      CupertinoPageRoute(builder: (context) => SignInIosPage()),
+                                    );
                                   }, 
                                   child: Text(
                                     'Войдите!',

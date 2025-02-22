@@ -1,5 +1,7 @@
 import 'dart:io';
 
+import 'package:duma/presentation/features/forgot_password/view/ui/forgot_password_ios/input_email_ios_page.dart';
+import 'package:duma/presentation/features/sign_up/view/ui/sign_up_ios/sign_up_ios_page.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -112,7 +114,10 @@ class _SignInIosPageState extends State<SignInIosPage> {
                           const Spacer(),
                           TextButton(
                             onPressed: () {
-
+                              Navigator.push(
+                                context,
+                                CupertinoPageRoute(builder: (context) => InputEmailIosPage()),
+                              );
                             }, 
                             child: Text(
                               'Забыли пароль?',
@@ -177,7 +182,10 @@ class _SignInIosPageState extends State<SignInIosPage> {
                                 const SizedBox(width: 5),
                                 TextButton(
                                   onPressed: () {
-
+                                    Navigator.push(
+                                      context,
+                                      CupertinoPageRoute(builder: (context) => SignUpIosPage()),
+                                    );
                                   }, 
                                   child: Text(
                                     'Создайте его!',

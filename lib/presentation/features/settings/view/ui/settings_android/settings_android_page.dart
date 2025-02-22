@@ -23,7 +23,7 @@ class _SettingsAndroidPageState extends State<SettingsAndroidPage> {
         Navigator.pushReplacement(
           context,
           MaterialPageRoute(
-            builder: (context) => SettingsIosPage(isSwitchEnabled: false),
+            builder: (context) => SettingsIosPage(isSwitchEnabled: true),
           ),
         );
       }

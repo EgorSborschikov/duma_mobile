@@ -121,6 +121,8 @@ class _SignUpAndroidPageState extends State<SignUpAndroidPage> {
                 ),
                 const SizedBox(height: 15),
                 Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Checkbox(
                       checkColor: Colors.white,
@@ -137,21 +139,6 @@ class _SignUpAndroidPageState extends State<SignUpAndroidPage> {
                         fontWeight: FontWeight.normal,
                         fontSize: 10,
                         color: Colors.black
-                      ),
-                    ),
-                    const Spacer(),
-                    TextButton(
-                      onPressed: () {
-
-                      }, 
-                      child: Text(
-                        'Забыли пароль?',
-                        style: TextStyle(
-                          fontFamily: 'Roboto',
-                          fontWeight: FontWeight.normal,
-                          fontSize: 10,
-                          color: Color(0xFF5727EC)
-                        ),
                       ),
                     ),
                   ],
