@@ -1,0 +1,1 @@
+export 'package:duma/presentation/features/onboard/view/view.dart';
