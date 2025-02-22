@@ -1,11 +1,43 @@
+import 'dart:io';
 import 'package:duma/presentation/common/components_for_ios/custom_top_navigation_bar/custom_top_navigation_bar.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import '../settings_android/settings_android_page.dart';
 import '../widgets/settings_items_ios_widgets/settings_option_ios.dart';
 import '../widgets/settings_items_ios_widgets/settings_items_ios.dart';
 
-class SettingsIosPage extends StatelessWidget {
-  const SettingsIosPage({super.key});
+class SettingsIosPage extends StatefulWidget {
+  final bool isSwitchEnabled; // Здесь объявляем переменную
+
+  const SettingsIosPage({super.key, required this.isSwitchEnabled,});
+
+  @override
+  State<SettingsIosPage> createState() => _SettingsIosPageState();
+}
+
+class _SettingsIosPageState extends State<SettingsIosPage> {
+  late bool _isCupertinoSwitchEnabled;
+
+  @override
+  void initState() {
+    super.initState();
+    _isCupertinoSwitchEnabled = widget.isSwitchEnabled; // Используем переданное состояние
+  }
+
+  void _onCupertinoSwitchChanged(bool value) {
+    setState(() {
+      _isCupertinoSwitchEnabled = value;
+
+      if (!_isCupertinoSwitchEnabled) {
+        Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(
+            builder: (context) => SettingsAndroidPage(),
+          ),
+        );
+      }
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -31,8 +63,8 @@ class SettingsIosPage extends StatelessWidget {
                   SettingsOptionIos(
                     title: 'Нативный интерфейс',
                     child: CupertinoSwitch(
-                      value: true,
-                      onChanged: (bool value) {},
+                      value: _isCupertinoSwitchEnabled,
+                      onChanged: _onCupertinoSwitchChanged,
                     ),
                   ),
                   SettingsOptionIos(

@@ -7,10 +7,11 @@ import 'package:flutter/material.dart';
 import 'presentation/features/settings/view/ui/settings_android/settings_android_page.dart';
 
 void main() => runApp(
-  DevicePreview(
+  /*DevicePreview(
     enabled: true,
     builder: (context) => Duma()
-  )
+  )*/
+  Duma()
 );
 
 class Duma extends StatelessWidget {
@@ -28,7 +29,7 @@ class Duma extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: SignInIosPage()//SettingsAndroidPage()//OnboardingPages()
+      home: OnboardingPages()
     );
   }
 }

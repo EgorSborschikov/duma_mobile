@@ -1,6 +1,8 @@
 import 'package:duma/presentation/features/onboard/onboard.dart';
 import 'package:flutter/material.dart';
 
+import '../../../../settings/view/ui/settings_android/settings_android_page.dart';
+
 class SignInAndroidPage extends StatefulWidget{
   const SignInAndroidPage({super.key});
 
@@ -143,7 +145,10 @@ class _SignInAndroidPageState extends State<SignInAndroidPage> {
                     children: [
                       ElevatedButton(
                         onPressed: () {
-                              // Действие при нажатии
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => SettingsAndroidPage()),
+                          );
                         },
                         style: ElevatedButton.styleFrom(
                           backgroundColor: Color(0xFF5727EC), 

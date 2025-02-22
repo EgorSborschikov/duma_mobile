@@ -1,5 +1,9 @@
+import 'dart:io';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+
+import '../../../../settings/view/ui/settings_ios/settings_ios_page.dart';
 
 class SignInIosPage extends StatefulWidget {
   const SignInIosPage({super.key});
@@ -31,7 +35,7 @@ class _SignInIosPageState extends State<SignInIosPage> {
                         style: TextStyle(
                           fontFamily: 'San Francisco',
                           fontWeight: FontWeight.bold,
-                          fontSize: 20,
+                          fontSize: 30,
                           color: Color(0xFF5727EC)
                         ),
                       ),
@@ -137,7 +141,13 @@ class _SignInIosPageState extends State<SignInIosPage> {
                                     padding: EdgeInsets.symmetric(),
                                     color: Color(0xFF5727CE),
                                     onPressed: () {
-
+                                      if (Platform.isAndroid) {
+                                        bool isSwitchEnabled = false; // Укажите значение, которое вам нужно передать
+                                        Navigator.push(
+                                          context,
+                                          CupertinoPageRoute(builder: (context) => SettingsIosPage(isSwitchEnabled: isSwitchEnabled)),
+                                        );
+                                      }
                                     },
                                     child: Text(
                                       'Войти',
@@ -145,9 +155,9 @@ class _SignInIosPageState extends State<SignInIosPage> {
                                         fontFamily: 'Ubuntu',
                                         fontWeight: FontWeight.normal,
                                         fontSize: 12,
-                                        color: Colors.white
+                                        color: Colors.white,
                                       ),
-                                    )
+                                    ),
                                   ),
                                 );
                               },

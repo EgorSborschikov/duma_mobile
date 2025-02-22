@@ -1,20 +1,52 @@
+import 'dart:io';
 import 'package:duma/presentation/common/components_for_android/custom_app_bar/custom_app_bar.dart';
+import 'package:duma/presentation/features/settings/view/ui/settings_ios/settings_ios_page.dart';
 import 'package:flutter/material.dart';
+import '../../../../sign_in/view/ui/sign_in_android/sign_in_android_page.dart';
 import '../widgets/settings_items_android_widgets/settings_option_android.dart';
 
-class SettingsAndroidPage extends StatelessWidget {
+class SettingsAndroidPage extends StatefulWidget {
   const SettingsAndroidPage({super.key});
+
+  @override
+  State<SettingsAndroidPage> createState() => _SettingsAndroidPageState();
+}
+
+class _SettingsAndroidPageState extends State<SettingsAndroidPage> {
+  bool _isSwitchEnabled = true; // По умолчанию включено, если на Android
+
+  void _onSwitchChanged(bool value) {
+    setState(() {
+      _isSwitchEnabled = value;
+
+      if (!_isSwitchEnabled) { // Если переключатель выключен
+        Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(
+            builder: (context) => SettingsIosPage(isSwitchEnabled: false),
+          ),
+        );
+      }
+    });
+  }
+
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: CustomAppBar(
-        title: 'Настройки', 
+        title: 'Настройки',
         child: IconButton(
           onPressed: () {
-
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => SignInAndroidPage()),
+            );
           }, 
-          icon: Icon(Icons.arrow_back)
+          icon: Icon(
+            Icons.arrow_back,
+            color: Colors.white,
+          ),
         ),
       ),
       body: ListView(
@@ -32,10 +64,8 @@ class SettingsAndroidPage extends StatelessWidget {
           SettingsOptionAndroid(
             title: 'Нативный интерфейс',
             child: Switch(
-              value: true,
-              onChanged: (bool value) {
-                // Логика обработки переключения темной темы
-              },
+              value: _isSwitchEnabled,
+              onChanged: _onSwitchChanged,
             ),
           ),
           Divider(),

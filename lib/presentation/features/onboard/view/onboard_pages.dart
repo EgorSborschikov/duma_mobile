@@ -1,6 +1,9 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 
 import '../../sign_in/view/ui/sign_in_android/sign_in_android_page.dart';
+import '../../sign_in/view/ui/sign_in_ios/sign_in_ios_page.dart';
 
 class OnboardingPages extends StatefulWidget {
   const OnboardingPages({super.key});
@@ -120,10 +123,17 @@ class _OnboardingPagesState extends State<OnboardingPages> {
                     child: ElevatedButton(
                       onPressed: () {
                         if (_currentPage == 2) {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(builder: (context) => SignInAndroidPage()),
-                          );
+                          if(Platform.isAndroid) {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context) => SignInAndroidPage()),
+                            );
+                          } else {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context) => SignInIosPage()),
+                            );
+                          }
                         } else {
                           _pageController.nextPage(
                             duration: Duration(milliseconds: 300),
