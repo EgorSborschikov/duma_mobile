@@ -14,20 +14,20 @@ class SettingsAndroidPage extends StatefulWidget {
 }
 
 class _SettingsAndroidPageState extends State<SettingsAndroidPage> {
-  bool _isSwitchEnabled = false; // По умолчанию включено, если на Android
+  bool _isSwitchEnabled = true; // По умолчанию включено, если на Android
 
   void _onSwitchChanged(bool value) {
     setState(() {
-      if (Platform.isAndroid) {
-        _isSwitchEnabled = true;
+      if (!Platform.isAndroid) {
+        _isSwitchEnabled = false;
       }
       _isSwitchEnabled = value;
 
-      if (_isSwitchEnabled) { // Если переключатель выключен
+      if (!_isSwitchEnabled) { // Если переключатель выключен
         Navigator.pushReplacement(
           context,
           MaterialPageRoute(
-            builder: (context) => SettingsIosPage(isSwitchEnabled: true),
+            builder: (context) => SettingsIosPage(isSwitchEnabled: false),
           ),
         );
       }

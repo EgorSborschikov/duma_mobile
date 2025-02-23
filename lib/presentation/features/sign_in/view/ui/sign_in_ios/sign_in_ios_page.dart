@@ -1,4 +1,5 @@
 import 'dart:io';
+import 'package:duma/presentation/common/components_for_ios/custom_tab_bar/custom_tab_bar.dart';
 import 'package:duma/presentation/features/forgot_password/view/ui/forgot_password_ios/input_email_ios_page.dart';
 import 'package:duma/presentation/features/onboard/onboard.dart';
 import 'package:duma/presentation/features/schedule/view/ui/schedule_ios/schedule_ios_page.dart';
@@ -162,7 +163,7 @@ class _SignInIosPageState extends State<SignInIosPage> {
                                       //bool isSwitchEnabled = true; // Укажите значение, которое вам нужно передать
                                         Navigator.push(
                                           context,
-                                          CupertinoPageRoute(builder: (context) => ScheduleIosPage()),
+                                          CupertinoPageRoute(builder: (context) => CustomTabBar()),
                                       );
                                     },
                                     child: Text(

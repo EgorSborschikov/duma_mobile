@@ -1,5 +1,6 @@
 import 'package:duma/presentation/common/components_for_android/custom_app_bar/custom_app_bar.dart';
 import 'package:duma/presentation/common/components_for_android/custom_navigation_drawer/custom_navigation_drawer.dart';
+import 'package:duma/presentation/features/search/view/ui/search_android/schedule_search_android_page.dart';
 import 'package:flutter/material.dart';
 
 class ScheduleAndroidPage extends StatelessWidget{
@@ -16,7 +17,12 @@ class ScheduleAndroidPage extends StatelessWidget{
         trailing: [
           IconButton(
             onPressed: () {
-
+              showModalBottomSheet(
+                context: context,
+                builder: (BuildContext context) {
+                  return ScheduleSearchAndroidPage();
+                },
+              );
             }, 
             icon: Icon(
               Icons.search,

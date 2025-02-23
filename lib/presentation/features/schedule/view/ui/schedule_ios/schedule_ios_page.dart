@@ -1,4 +1,5 @@
 import 'package:duma/presentation/common/components_for_ios/custom_top_navigation_bar/custom_top_navigation_bar.dart';
+import 'package:duma/presentation/features/search/view/ui/search_ios/schedule_search_ios_page.dart';
 import 'package:flutter/cupertino.dart';
 
 class ScheduleIosPage extends StatelessWidget{
@@ -26,12 +27,10 @@ class ScheduleIosPage extends StatelessWidget{
                         padding: EdgeInsets.symmetric(),
                         color: CupertinoColors.opaqueSeparator,
                         onPressed: () {
-                                      /*
-                                        Navigator.push(
-                                          context,
-                                          CupertinoPageRoute(builder: (context) => ),
-                                      );
-                                    */
+                          Navigator.push(
+                            context,
+                            CupertinoPageRoute(builder: (context) => ScheduleSearchIosPage()),
+                          );
                         },
                         child: Row(
                           crossAxisAlignment: CrossAxisAlignment.center,

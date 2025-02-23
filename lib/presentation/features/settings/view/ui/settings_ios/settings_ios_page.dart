@@ -1,5 +1,6 @@
 import 'dart:io';
 import 'package:duma/presentation/common/components_for_ios/custom_top_navigation_bar/custom_top_navigation_bar.dart';
+import 'package:duma/presentation/features/sign_in/view/ui/sign_in_ios/sign_in_ios_page.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import '../settings_android/settings_android_page.dart';
@@ -21,14 +22,19 @@ class _SettingsIosPageState extends State<SettingsIosPage> {
   @override
   void initState() {
     super.initState();
-    _isCupertinoSwitchEnabled = widget.isSwitchEnabled; // Используем переданное состояние
+    if (!Platform.isIOS) {
+      _isCupertinoSwitchEnabled = widget.isSwitchEnabled; // Используем переданное состояние
+    }
   }
 
   void _onCupertinoSwitchChanged(bool value) {
     setState(() {
+      if (Platform.isAndroid) {
+        _isCupertinoSwitchEnabled = false;
+      }
       _isCupertinoSwitchEnabled = value;
 
-      if (!_isCupertinoSwitchEnabled) {
+      if (_isCupertinoSwitchEnabled) {
         Navigator.pushReplacement(
           context,
           MaterialPageRoute(
@@ -44,7 +50,6 @@ class _SettingsIosPageState extends State<SettingsIosPage> {
     return CupertinoPageScaffold(
       navigationBar: CustomTopNavigationBar(
         title: 'Настройки', 
-        showBackButton: true,
       ),
       child: SafeArea(
         child: CustomScrollView(
@@ -145,7 +150,12 @@ class _SettingsIosPageState extends State<SettingsIosPage> {
                         color: Colors.red,
                       ),
                       onPressed: () {
-                        // Логика удаления аккаунта
+                        Navigator.push(
+                          context,
+                          CupertinoPageRoute(
+                            builder: (context) => SignInIosPage()
+                          )
+                        );
                         print('Удалить аккаунт');
                       },
                     ),

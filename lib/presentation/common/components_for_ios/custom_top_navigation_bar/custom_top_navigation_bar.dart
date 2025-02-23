@@ -27,7 +27,7 @@ class CustomTopNavigationBar extends StatelessWidget implements ObstructingPrefe
           ? CupertinoNavigationBarBackButton(
               color: Color(0xFF5727CE),
               onPressed: () {
-                Navigator.of(context).maybePop();
+                Navigator.of(context).maybePop(); //надо будет добавить переход на IOSProfilePage
               },
               previousPageTitle: previousPageTitle != null && previousPageTitle!.length > 8
                   ? 'Назад'
