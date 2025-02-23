@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
-class CustomAppBar extends StatelessWidget implements PreferredSizeWidget{
+class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   final String title;
   final Widget child;
 
   const CustomAppBar({super.key, required this.title, required this.child});
-  
+
   @override
   Widget build(BuildContext context) {
     return AppBar(
@@ -15,15 +15,18 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget{
         style: TextStyle(
           color: Colors.white,
           fontFamily: 'Roboto',
-          fontSize: 20
+          fontSize: 20,
         ),
       ),
       centerTitle: false,
-      leading: child,
+      leading: SizedBox(
+        width: 50, // Задайте ширину
+        height: 50, // Задайте высоту
+        child: child,
+      ),
     );
   }
-  
+
   @override
-  // TODO: implement preferredSize
   Size get preferredSize => const Size.fromHeight(kToolbarHeight);
 }

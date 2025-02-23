@@ -1,4 +1,6 @@
+import 'package:duma/presentation/features/forgot_password/view/ui/forgot_password_android/input_email_android_page.dart';
 import 'package:duma/presentation/features/onboard/onboard.dart';
+import 'package:duma/presentation/features/schedule/view/ui/schedule_android/schedule_android_page.dart';
 import 'package:flutter/material.dart';
 import '../../../../settings/view/ui/settings_android/settings_android_page.dart';
 import '../../../../sign_up/view/ui/sign_up_android/sign_up_android_page.dart';
@@ -123,7 +125,10 @@ class _SignInAndroidPageState extends State<SignInAndroidPage> {
                     const Spacer(),
                     TextButton(
                       onPressed: () {
-
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => InputEmailAndroidPage()),
+                        );
                       }, 
                       child: Text(
                         'Забыли пароль?',
@@ -147,7 +152,7 @@ class _SignInAndroidPageState extends State<SignInAndroidPage> {
                         onPressed: () {
                           Navigator.push(
                             context,
-                            MaterialPageRoute(builder: (context) => SettingsAndroidPage()),
+                            MaterialPageRoute(builder: (context) => ScheduleAndroidPage()),
                           );
                         },
                         style: ElevatedButton.styleFrom(

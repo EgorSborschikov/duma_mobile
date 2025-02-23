@@ -9,7 +9,9 @@ class SettingsOptionAndroid extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
     return ListTile(
-      title: Text(title),
+      title: Flexible(
+        child: Text(title)
+      ),
       trailing: child,
     );
   }

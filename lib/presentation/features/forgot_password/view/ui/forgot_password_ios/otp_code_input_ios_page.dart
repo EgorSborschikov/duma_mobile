@@ -172,7 +172,7 @@ class OtpCodeInputIosPage extends StatelessWidget{
                           );
                         },
                         child: Text(
-                          'Отправить код',
+                          'Войти в аккаунт',
                           style: TextStyle(
                             fontFamily: 'Ubuntu',
                             fontWeight: FontWeight.normal,

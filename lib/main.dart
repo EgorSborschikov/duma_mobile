@@ -1,6 +1,6 @@
 import 'package:device_preview/device_preview.dart';
 import 'package:flutter/material.dart';
-import 'presentation/features/sign_up/view/ui/sign_up_ios/sign_up_ios_page.dart';
+import 'presentation/features/sign_up/view/ui/sign_up_android/sign_up_android_page.dart';
 
 void main() => runApp(
   DevicePreview(
@@ -24,7 +24,7 @@ class Duma extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: SignUpIosPage()
+      home: SignUpAndroidPage()
     );
   }
 }
