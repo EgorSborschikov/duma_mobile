@@ -1,3 +1,5 @@
+import 'package:duma/presentation/common/components_for_ios/custom_tab_bar/custom_tab_bar.dart';
+import 'package:duma/presentation/features/schedule/view/ui/schedule_ios/schedule_ios_page.dart';
 import 'package:duma/presentation/features/settings/view/ui/settings_ios/settings_ios_page.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -168,7 +170,7 @@ class OtpCodeInputIosPage extends StatelessWidget{
                         onPressed: () {
                           Navigator.push(
                             context,
-                            CupertinoPageRoute(builder: (context) => SettingsIosPage(isSwitchEnabled: true,)),
+                            CupertinoPageRoute(builder: (context) => CustomTabBar()),
                           );
                         },
                         child: Text(

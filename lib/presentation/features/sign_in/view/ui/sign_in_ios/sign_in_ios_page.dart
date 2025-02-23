@@ -1,10 +1,10 @@
 import 'dart:io';
-
 import 'package:duma/presentation/features/forgot_password/view/ui/forgot_password_ios/input_email_ios_page.dart';
+import 'package:duma/presentation/features/onboard/onboard.dart';
+import 'package:duma/presentation/features/schedule/view/ui/schedule_ios/schedule_ios_page.dart';
 import 'package:duma/presentation/features/sign_up/view/ui/sign_up_ios/sign_up_ios_page.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
 import '../../../../settings/view/ui/settings_ios/settings_ios_page.dart';
 
 class SignInIosPage extends StatefulWidget {
@@ -20,6 +20,19 @@ class _SignInIosPageState extends State<SignInIosPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
+      appBar: AppBar(
+        backgroundColor: Colors.white,
+        leading: IconButton(
+          onPressed: () {
+            Navigator.push(
+              context,
+              CupertinoPageRoute(builder: (context) => OnboardingPages()),
+            );
+          }, 
+          icon: Icon(CupertinoIcons.back)
+        ),
+      ),
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 16.0),
@@ -146,10 +159,10 @@ class _SignInIosPageState extends State<SignInIosPage> {
                                     padding: EdgeInsets.symmetric(),
                                     color: Color(0xFF5727CE),
                                     onPressed: () {
-                                      bool isSwitchEnabled = false; // Укажите значение, которое вам нужно передать
+                                      //bool isSwitchEnabled = true; // Укажите значение, которое вам нужно передать
                                         Navigator.push(
                                           context,
-                                          CupertinoPageRoute(builder: (context) => SettingsIosPage(isSwitchEnabled: isSwitchEnabled)),
+                                          CupertinoPageRoute(builder: (context) => ScheduleIosPage()),
                                       );
                                     },
                                     child: Text(

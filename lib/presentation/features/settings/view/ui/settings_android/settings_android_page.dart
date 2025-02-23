@@ -4,7 +4,6 @@ import 'package:duma/presentation/features/schedule/view/ui/schedule_android/sch
 import 'package:duma/presentation/features/settings/view/ui/settings_ios/settings_ios_page.dart';
 import 'package:duma/presentation/features/sign_up/view/ui/sign_up_android/sign_up_android_page.dart';
 import 'package:flutter/material.dart';
-import '../../../../sign_in/view/ui/sign_in_android/sign_in_android_page.dart';
 import '../widgets/settings_items_android_widgets/settings_option_android.dart';
 
 class SettingsAndroidPage extends StatefulWidget {
@@ -15,13 +14,16 @@ class SettingsAndroidPage extends StatefulWidget {
 }
 
 class _SettingsAndroidPageState extends State<SettingsAndroidPage> {
-  bool _isSwitchEnabled = true; // По умолчанию включено, если на Android
+  bool _isSwitchEnabled = false; // По умолчанию включено, если на Android
 
   void _onSwitchChanged(bool value) {
     setState(() {
+      if (Platform.isAndroid) {
+        _isSwitchEnabled = true;
+      }
       _isSwitchEnabled = value;
 
-      if (!_isSwitchEnabled) { // Если переключатель выключен
+      if (_isSwitchEnabled) { // Если переключатель выключен
         Navigator.pushReplacement(
           context,
           MaterialPageRoute(
@@ -95,29 +97,26 @@ class _SettingsAndroidPageState extends State<SettingsAndroidPage> {
                   ),
                 ),
                 Divider(),
-                SettingsOptionAndroid(
+                 SettingsOptionAndroid(
                   title: 'Выбрать язык',
                   child: TextButton(
                     onPressed: () {
                        _showLanguageDialog(context);
                     },
-                    child: Text('Язык'),
+                    child: Text('Русский'),
                   ),
                 ),
                 const SizedBox(height: 20),
                 Row(
                   children: [
-                    Flexible(
-                      fit: FlexFit.loose,
-                      child: Text(
-                        'Дополнительные настройки аккаунта',
-                        style: TextStyle(
-                          decoration: TextDecoration.none,
-                          fontFamily: 'Roboto',
-                          fontWeight: FontWeight.bold,
-                          fontSize: 20,
-                          color: Colors.black
-                        ),
+                    Text(
+                      'Прочие настройки аккаунта',
+                      style: TextStyle(
+                        decoration: TextDecoration.none,
+                        fontFamily: 'Roboto',
+                        fontWeight: FontWeight.bold,
+                        fontSize: 20,
+                        color: Colors.black
                       ),
                     ),
                     Spacer()

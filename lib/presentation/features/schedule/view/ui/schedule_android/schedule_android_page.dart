@@ -12,7 +12,28 @@ class ScheduleAndroidPage extends StatelessWidget{
     return Scaffold(
       key: scaffoldKey,
       appBar: CustomAppBar(
-        title: 'Расписание', 
+        title: 'Расписание',
+        trailing: [
+          IconButton(
+            onPressed: () {
+
+            }, 
+            icon: Icon(
+              Icons.search,
+              color: Colors.white,
+            ),
+          ),
+          const SizedBox(width: 5),
+          IconButton(
+            onPressed: () {
+
+            }, 
+            icon: Icon(
+              Icons.more_vert,
+              color: Colors.white,
+            ),
+          ),
+        ], 
         child: IconButton(
           onPressed: () {
             scaffoldKey.currentState?.openDrawer();
