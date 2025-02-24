@@ -9,7 +9,10 @@ class ScheduleIosPage extends StatelessWidget{
   Widget build(BuildContext context) {
     return CupertinoPageScaffold(
       navigationBar: CustomTopNavigationBar(
-        title: 'Расписание'
+        title: 'Расписание', 
+        onTap: () { 
+
+        },
       ),
       child: SafeArea(
         child: Padding(

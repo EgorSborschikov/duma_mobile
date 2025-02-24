@@ -1,14 +1,18 @@
+import 'package:duma/presentation/common/components_for_ios/custom_tab_bar/custom_tab_bar.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+
+import '../../../features/schedule/view/ui/schedule_ios/schedule_ios_page.dart';
 
 class CustomTopNavigationBar extends StatelessWidget implements ObstructingPreferredSizeWidget {
   final String title;
-  final String? previousPageTitle;
-  final bool showBackButton;
+  final VoidCallback? onTap;
+  final bool showLeading;
 
   CustomTopNavigationBar({
     required this.title,
-    this.previousPageTitle,
-    this.showBackButton = false,
+    this.showLeading = false, 
+    required this.onTap,
   });
 
   @override
@@ -23,16 +27,14 @@ class CustomTopNavigationBar extends StatelessWidget implements ObstructingPrefe
           color: CupertinoColors.black
         ),
       ),
-      leading: showBackButton
-          ? CupertinoNavigationBarBackButton(
+      leading: showLeading
+          ? IconButton(
+            onPressed: onTap,
+            icon: Icon(
+              CupertinoIcons.back,
               color: Color(0xFF5727CE),
-              onPressed: () {
-                Navigator.of(context).maybePop(); //надо будет добавить переход на IOSProfilePage
-              },
-              previousPageTitle: previousPageTitle != null && previousPageTitle!.length > 8
-                  ? 'Назад'
-                  : previousPageTitle,
-            )
+            ),
+          )
           : null,
     );
   }

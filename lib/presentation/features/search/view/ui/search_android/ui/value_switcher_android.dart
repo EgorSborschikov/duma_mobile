@@ -1,13 +1,13 @@
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 
-class ValueSwitcher extends StatefulWidget {
-  const ValueSwitcher({super.key});
+class ValueSwitcherAndroid extends StatefulWidget {
+  const ValueSwitcherAndroid({super.key});
 
   @override
   _ValueSwitcherState createState() => _ValueSwitcherState();
 }
 
-class _ValueSwitcherState extends State<ValueSwitcher> {
+class _ValueSwitcherState extends State<ValueSwitcherAndroid> {
   int currentValue = 1;
 
   void incrementValue() {
@@ -31,24 +31,24 @@ class _ValueSwitcherState extends State<ValueSwitcher> {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: <Widget>[
-        CupertinoButton(
-          child: Icon(CupertinoIcons.minus_circled),
+        IconButton(
+          icon: Icon(Icons.remove_circle),
           onPressed: decrementValue,
         ),
         Expanded(
           child: Center(
             child: Text(
-              '$currentValue', 
+              '$currentValue',
               style: TextStyle(
                 fontSize: 18,
                 decoration: TextDecoration.none,
-                color: CupertinoColors.black
+                color: Colors.black,
               ),
             ),
           ),
         ),
-        CupertinoButton(
-          child: Icon(CupertinoIcons.plus_circled),
+        IconButton(
+          icon: Icon(Icons.add_circle),
           onPressed: incrementValue,
         ),
       ],

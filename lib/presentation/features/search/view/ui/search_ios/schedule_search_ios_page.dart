@@ -1,7 +1,8 @@
 import 'package:flutter/cupertino.dart';
+import '../../../../../common/components_for_ios/custom_top_navigation_bar/custom_top_navigation_bar.dart';
 import 'search_parameters_form.dart';
 import 'ui/time_range_picker.dart';
-import 'ui/value_switcher.dart';
+import 'ui/value_switcher_ios.dart';
 
 class ScheduleSearchIosPage extends StatefulWidget {
   const ScheduleSearchIosPage({super.key});
@@ -12,13 +13,22 @@ class ScheduleSearchIosPage extends StatefulWidget {
 
 class _ScheduleSearchIosPageState extends State<ScheduleSearchIosPage> {
   bool _isAdvancedOptionsEnabled = false;
+  final TextStyle _textStyle = TextStyle(
+    fontFamily: 'San Francisco',
+    fontWeight: FontWeight.normal,
+    fontSize: 14,
+    color: CupertinoColors.inactiveGray,
+  );
 
   @override
   Widget build(BuildContext context) {
     return CupertinoPageScaffold(
       backgroundColor: CupertinoColors.white,
-      navigationBar: CupertinoNavigationBar(
-        middle: Text('Настройки поиска расписания'),
+      navigationBar: CustomTopNavigationBar(
+        title: 'Настройки поиска расписания', 
+        onTap: () { 
+
+        },
       ),
       child: SafeArea(
         child: CustomScrollView(
@@ -28,7 +38,10 @@ class _ScheduleSearchIosPageState extends State<ScheduleSearchIosPage> {
                 header: 'Общая информация', 
                 options: [
                   SearchParametersOption(
-                    title: 'Название группы', 
+                    title: Text(
+                      'Название группы',
+                      style: _textStyle,
+                    ), 
                     child: Container(
                       width: 190,
                       height: 50,
@@ -44,7 +57,10 @@ class _ScheduleSearchIosPageState extends State<ScheduleSearchIosPage> {
                     ),
                   ),
                   SearchParametersOption(
-                    title: 'Учебное заведение', 
+                    title: Text(
+                      'Учебное заведение', 
+                      style: _textStyle
+                    ), 
                     child: Container(
                       width: 180,
                       height: 50,
@@ -60,25 +76,35 @@ class _ScheduleSearchIosPageState extends State<ScheduleSearchIosPage> {
                     ),
                   ),
                   SearchParametersOption(
-                    title: 'Включить расширенный поиск', 
+                    title: Text(
+                      _isAdvancedOptionsEnabled ? 'Выключить расширенный поиск' : 'Включить расширенный поиск',
+                      style: _textStyle,
+                    ),
                     child: CupertinoSwitch(
-                      value: false, 
+                      value: _isAdvancedOptionsEnabled,
                       onChanged: _openMoreMenuSearchSchedule,
                     ),
                   ),
                 ],
               ),
             ),
-            SliverToBoxAdapter(
+            if(_isAdvancedOptionsEnabled) 
+              SliverToBoxAdapter(
               child: SearchItemsIos(
                 header: 'Расширенный поиск', 
                 options: [
                   SearchParametersOption(
-                    title: 'Номер смены', 
-                    child: ValueSwitcher()
+                    title: Text(
+                      'Номер смены',
+                      style: _textStyle,
+                    ), 
+                    child: ValueSwitcherIos()
                   ),
                   SearchParametersOption(
-                    title: 'Название профиля', 
+                    title: Text(
+                      'Название профиля', 
+                      style: _textStyle
+                    ), 
                     child: Container(
                       width: 180,
                       height: 50,
@@ -94,7 +120,10 @@ class _ScheduleSearchIosPageState extends State<ScheduleSearchIosPage> {
                     ),
                   ),
                   SearchParametersOption(
-                    title: 'Время занятий', 
+                    title: Text(
+                      'Время занятий',
+                      style: _textStyle,
+                    ), 
                     child: TimeRangePicker()
                   ),
                 ],
@@ -102,16 +131,16 @@ class _ScheduleSearchIosPageState extends State<ScheduleSearchIosPage> {
             ),
             SliverToBoxAdapter(
               child: SizedBox(
-                width: 200,
+                width: 150,
                 height: 43,
                 child: CupertinoButton(
-                  padding: EdgeInsets.symmetric(),
+                  padding: const EdgeInsets.symmetric(horizontal: 16.0),
                   color: Color(0xFF5727CE),
                   onPressed: () {
 
                   },
                   child: Text(
-                    'Войти',
+                    'Найти',
                     style: TextStyle(
                       fontFamily: 'Ubuntu',
                       fontWeight: FontWeight.normal,
@@ -130,9 +159,6 @@ class _ScheduleSearchIosPageState extends State<ScheduleSearchIosPage> {
   void _openMoreMenuSearchSchedule(bool value) {
     setState(() {
       _isAdvancedOptionsEnabled = value;
-      if (_isAdvancedOptionsEnabled = true) {
-        // Ваша логика здесь
-      }
     });
   }
 }

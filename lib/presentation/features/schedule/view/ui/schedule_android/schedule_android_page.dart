@@ -19,9 +19,14 @@ class ScheduleAndroidPage extends StatelessWidget{
             onPressed: () {
               showModalBottomSheet(
                 context: context,
+                isScrollControlled: true,
                 builder: (BuildContext context) {
-                  return ScheduleSearchAndroidPage();
-                },
+                  return StatefulBuilder(
+                    builder: (BuildContext context, StateSetter setState) {
+                      return ScheduleSearchAndroidPage();
+                    }
+                  );
+                }
               );
             }, 
             icon: Icon(
