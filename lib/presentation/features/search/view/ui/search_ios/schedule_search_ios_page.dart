@@ -1,10 +1,9 @@
-import 'package:duma/presentation/common/components_for_ios/custom_top_navigation_bar/custom_top_navigation_bar.dart';
-import 'package:duma/presentation/features/search/view/ui/search_ios/search_parameters_form.dart';
-import 'package:duma/presentation/features/search/view/ui/search_ios/ui/time_range_picker.dart';
-import 'package:duma/presentation/features/search/view/ui/search_ios/ui/value_switcher.dart';
 import 'package:flutter/cupertino.dart';
+import 'search_parameters_form.dart';
+import 'ui/time_range_picker.dart';
+import 'ui/value_switcher.dart';
 
-class ScheduleSearchIosPage extends StatefulWidget{
+class ScheduleSearchIosPage extends StatefulWidget {
   const ScheduleSearchIosPage({super.key});
 
   @override
@@ -12,52 +11,128 @@ class ScheduleSearchIosPage extends StatefulWidget{
 }
 
 class _ScheduleSearchIosPageState extends State<ScheduleSearchIosPage> {
-  int selectedNumber = 1;
+  bool _isAdvancedOptionsEnabled = false;
 
   @override
   Widget build(BuildContext context) {
     return CupertinoPageScaffold(
       backgroundColor: CupertinoColors.white,
-      navigationBar: CustomTopNavigationBar(
-        title: 'Настройки поиска расписания'
+      navigationBar: CupertinoNavigationBar(
+        middle: Text('Настройки поиска расписания'),
       ),
       child: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 16.0),
-          child: SingleChildScrollView(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                Text(
-                  'Укажите параметры, по которым необходимо проводить поиск',
-                  style: TextStyle(
-                    fontFamily: 'Ubuntu',
-                    fontWeight: FontWeight.normal,
-                    fontSize: 14,
-                    color: CupertinoColors.black,
-                    decoration: TextDecoration.none
+        child: CustomScrollView(
+          slivers: <Widget>[
+            SliverToBoxAdapter(
+              child: SearchItemsIos(
+                header: 'Общая информация', 
+                options: [
+                  SearchParametersOption(
+                    title: 'Название группы', 
+                    child: Container(
+                      width: 190,
+                      height: 50,
+                      decoration: BoxDecoration(
+                        color: CupertinoColors.systemGrey6,
+                        borderRadius: BorderRadius.circular(8.0),
+                      ),
+                      child: CupertinoTextField(
+                        placeholder: 'Группа',
+                        padding: const EdgeInsets.symmetric(horizontal: 16),
+                        decoration: const BoxDecoration(),
+                      ),
+                    ),
+                  ),
+                  SearchParametersOption(
+                    title: 'Учебное заведение', 
+                    child: Container(
+                      width: 180,
+                      height: 50,
+                      decoration: BoxDecoration(
+                        color: CupertinoColors.systemGrey6,
+                        borderRadius: BorderRadius.circular(8.0),
+                      ),
+                      child: CupertinoTextField(
+                        placeholder: 'Уч. заведение',
+                        padding: const EdgeInsets.symmetric(horizontal: 16),
+                        decoration: const BoxDecoration(),
+                      ),
+                    ),
+                  ),
+                  SearchParametersOption(
+                    title: 'Включить расширенный поиск', 
+                    child: CupertinoSwitch(
+                      value: false, 
+                      onChanged: _openMoreMenuSearchSchedule,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            SliverToBoxAdapter(
+              child: SearchItemsIos(
+                header: 'Расширенный поиск', 
+                options: [
+                  SearchParametersOption(
+                    title: 'Номер смены', 
+                    child: ValueSwitcher()
+                  ),
+                  SearchParametersOption(
+                    title: 'Название профиля', 
+                    child: Container(
+                      width: 180,
+                      height: 50,
+                      decoration: BoxDecoration(
+                        color: CupertinoColors.systemGrey6,
+                        borderRadius: BorderRadius.circular(8.0),
+                      ),
+                      child: CupertinoTextField(
+                        placeholder: 'Профиль',
+                        padding: const EdgeInsets.symmetric(horizontal: 16),
+                        decoration: const BoxDecoration(),
+                      ),
+                    ),
+                  ),
+                  SearchParametersOption(
+                    title: 'Время занятий', 
+                    child: TimeRangePicker()
+                  ),
+                ],
+              ),
+            ),
+            SliverToBoxAdapter(
+              child: SizedBox(
+                width: 200,
+                height: 43,
+                child: CupertinoButton(
+                  padding: EdgeInsets.symmetric(),
+                  color: Color(0xFF5727CE),
+                  onPressed: () {
+
+                  },
+                  child: Text(
+                    'Войти',
+                    style: TextStyle(
+                      fontFamily: 'Ubuntu',
+                      fontWeight: FontWeight.normal,
+                      fontSize: 12,
+                      color: CupertinoColors.white,           
+                    ),
                   ),
                 ),
-                const SizedBox(height: 10),
-                SearchItemsIos(
-                  header: 'Информация о занятиях', 
-                  options: [
-                    SearchParametersOption(
-                      title: 'Номер смены', 
-                      child: ValueSwitcher()
-                    ),
-                    SearchParametersOption(
-                      title: 'Время занятия', 
-                      child: TimeRangePicker()
-                    ),
-                  ],
-                ),
-              ],
+              ),             
             ),
-          )
+          ],
         ),
       ),
     );
+  }
+  void _openMoreMenuSearchSchedule(bool value) {
+    setState(() {
+      _isAdvancedOptionsEnabled = value;
+      if (_isAdvancedOptionsEnabled = true) {
+        // Ваша логика здесь
+      }
+    });
   }
 }

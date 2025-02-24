@@ -25,10 +25,10 @@ class _TimeRangePickerState extends State<TimeRangePicker> {
                   initialTimerDuration: startTime != null
                       ? Duration(hours: startTime!.hour, minutes: startTime!.minute)
                       : Duration(hours: 9, minutes: 0),
-                  mode: CupertinoTimerPickerMode.ms,
+                  mode: CupertinoTimerPickerMode.hm, // Изменено на hm для выбора часов и минут
                   onTimerDurationChanged: (Duration newDuration) {
                     setState(() {
-                      startTime = TimeOfDay(hour: newDuration.inHours, minute: newDuration.inMinutes % 60);
+                      startTime = TimeOfDay(hour: newDuration.inHours % 24, minute: newDuration.inMinutes % 60);
                     });
                   },
                 ),
@@ -41,10 +41,10 @@ class _TimeRangePickerState extends State<TimeRangePicker> {
                   initialTimerDuration: endTime != null
                       ? Duration(hours: endTime!.hour, minutes: endTime!.minute)
                       : Duration(hours: 17, minutes: 0),
-                  mode: CupertinoTimerPickerMode.ms,
+                  mode: CupertinoTimerPickerMode.hm, // Изменено на hm для выбора часов и минут
                   onTimerDurationChanged: (Duration newDuration) {
                     setState(() {
-                      endTime = TimeOfDay(hour: newDuration.inHours, minute: newDuration.inMinutes % 60);
+                      endTime = TimeOfDay(hour: newDuration.inHours % 24, minute: newDuration.inMinutes % 60);
                     });
                   },
                 ),
