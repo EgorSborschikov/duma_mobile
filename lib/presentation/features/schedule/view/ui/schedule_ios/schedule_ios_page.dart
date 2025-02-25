@@ -8,6 +8,7 @@ class ScheduleIosPage extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
     return CupertinoPageScaffold(
+      backgroundColor: CupertinoColors.white,
       navigationBar: CustomTopNavigationBar(
         title: 'Расписание', 
         onTap: () { 

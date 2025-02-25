@@ -4,10 +4,10 @@ class ValueSwitcherAndroid extends StatefulWidget {
   const ValueSwitcherAndroid({super.key});
 
   @override
-  _ValueSwitcherState createState() => _ValueSwitcherState();
+  _ValueSwitcherIosState createState() => _ValueSwitcherIosState();
 }
 
-class _ValueSwitcherState extends State<ValueSwitcherAndroid> {
+class _ValueSwitcherIosState extends State<ValueSwitcherAndroid> {
   int currentValue = 1;
 
   void incrementValue() {
@@ -28,30 +28,34 @@ class _ValueSwitcherState extends State<ValueSwitcherAndroid> {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: <Widget>[
-        IconButton(
-          icon: Icon(Icons.remove_circle),
-          onPressed: decrementValue,
-        ),
-        Expanded(
-          child: Center(
-            child: Text(
-              '$currentValue',
-              style: TextStyle(
-                fontSize: 18,
-                decoration: TextDecoration.none,
-                color: Colors.black,
+    return Container(
+      width: double.infinity,
+      height: 60,
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: <Widget>[
+          IconButton(
+            onPressed: decrementValue,
+            icon: Icon(Icons.remove_circle_outline_outlined),
+          ),
+          Expanded(
+            child: Center(
+              child: Text(
+                '$currentValue',
+                style: TextStyle(
+                  fontSize: 18,
+                  decoration: TextDecoration.none,
+                  color: Colors.black
+                ),
               ),
             ),
           ),
-        ),
-        IconButton(
-          icon: Icon(Icons.add_circle),
-          onPressed: incrementValue,
-        ),
-      ],
+          IconButton(
+            onPressed: incrementValue,
+            icon: Icon(Icons.add_circle_outline_sharp),
+          ),
+        ],
+      ),
     );
   }
 }

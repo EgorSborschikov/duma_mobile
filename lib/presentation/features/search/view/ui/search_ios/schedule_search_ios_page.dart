@@ -43,7 +43,7 @@ class _ScheduleSearchIosPageState extends State<ScheduleSearchIosPage> {
                       style: _textStyle,
                     ), 
                     child: Container(
-                      width: 190,
+                      width: 180,
                       height: 50,
                       decoration: BoxDecoration(
                         color: CupertinoColors.systemGrey6,

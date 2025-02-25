@@ -17,16 +17,9 @@ class ScheduleAndroidPage extends StatelessWidget{
         trailing: [
           IconButton(
             onPressed: () {
-              showModalBottomSheet(
-                context: context,
-                isScrollControlled: true,
-                builder: (BuildContext context) {
-                  return StatefulBuilder(
-                    builder: (BuildContext context, StateSetter setState) {
-                      return ScheduleSearchAndroidPage();
-                    }
-                  );
-                }
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => ScheduleSearchAndroidPage()),
               );
             }, 
             icon: Icon(
@@ -34,17 +27,7 @@ class ScheduleAndroidPage extends StatelessWidget{
               color: Colors.white,
             ),
           ),
-          const SizedBox(width: 5),
-          IconButton(
-            onPressed: () {
-
-            }, 
-            icon: Icon(
-              Icons.more_vert,
-              color: Colors.white,
-            ),
-          ),
-        ], 
+        ],
         child: IconButton(
           onPressed: () {
             scaffoldKey.currentState?.openDrawer();

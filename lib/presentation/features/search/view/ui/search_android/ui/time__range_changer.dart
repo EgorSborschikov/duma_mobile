@@ -76,10 +76,23 @@ class _TimeRangePickerState extends State<TimeRangeChanger> {
     }
 
     return ElevatedButton(
-      child: Text(buttonText),
+      style: ElevatedButton.styleFrom(
+        backgroundColor: Color(0xFF5727EC), 
+        padding: EdgeInsets.symmetric(horizontal: 43, vertical: 10), 
+         minimumSize: Size(263, 43), 
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(10),
+        ),
+      ),
       onPressed: () {
         _showTimePickerDialog(context);
       },
+      child: Text(
+        buttonText,
+        style: TextStyle(
+          color: Colors.white
+        ),
+      ),
     );
   }
 }
