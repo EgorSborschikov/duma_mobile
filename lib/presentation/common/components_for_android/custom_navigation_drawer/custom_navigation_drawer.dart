@@ -18,66 +18,18 @@ class CustomNavigationDrawer extends StatelessWidget {
           child: Column(
             children: [
               DrawerHeader(
-                child: Row(
+                child: Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
-                    Column(
-                      children: [
-                        // временная заглушка
-                        CircleAvatar(
-                          radius: 30,
-                        ),
-                        const SizedBox(height: 10),
-                        Text('Имя'),
-                        const SizedBox(height: 5),
-                        Text('Статус')
-                      ],
-                    ),
-                    Spacer(),
-                    IconButton(
-                      onPressed: () {
-                        
-                      },
-                      icon: Icon(
-                        Icons.arrow_circle_right_outlined,
-                        color: Colors.white,
-                      ),
-                    ),
+                    Text('Дополнительные опции'),
+                    Icon(Icons.settings_applications_outlined)
                   ],
                 ),
               ),
               Expanded(
                 child: ListView(
                   children: [
-                    DrawerOption(
-                      title: 'Расписание',
-                      onTap: () { 
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(builder: (context) => ScheduleAndroidPage()),
-                        );
-                      },
-                      child:  Icon(
-                        Icons.list_alt_outlined,
-                        color: Colors.white,
-                      ),
-                    ),
-                    const SizedBox(height: 10),
-                    DrawerOption(
-                      title: 'Чаты',
-                      onTap: () { 
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(builder: (context) => ScheduleAndroidPage()),
-                        );
-                      },
-                      child: Icon(
-                        Icons.message,
-                        color: Colors.white,
-                      ),
-                    ),
-                    const SizedBox(height: 10),
                     DrawerOption(
                       title: 'Информация об учебном заведении',
                       onTap: () { 

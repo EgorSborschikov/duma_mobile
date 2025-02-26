@@ -1,3 +1,4 @@
+import 'package:duma/presentation/common/components_for_android/custom_bottom_navigation_bar.dart/pages_frame.dart';
 import 'package:flutter/material.dart';
 import '../../../../settings/view/ui/settings_android/settings_android_page.dart';
 import '../../../../sign_in/view/ui/sign_in_android/sign_in_android_page.dart';
@@ -153,7 +154,7 @@ class _SignUpAndroidPageState extends State<SignUpAndroidPage> {
                         onPressed: () {
                           Navigator.push(
                             context,
-                            MaterialPageRoute(builder: (context) => SettingsAndroidPage()),
+                            MaterialPageRoute(builder: (context) => PagesFrame()),
                           );
                         },
                         style: ElevatedButton.styleFrom(
