@@ -1,5 +1,6 @@
 import 'dart:io';
 import 'package:duma/presentation/common/components_for_android/custom_app_bar/custom_app_bar.dart';
+import 'package:duma/presentation/common/components_for_android/custom_bottom_navigation_bar.dart/pages_frame.dart';
 import 'package:duma/presentation/features/schedule/view/ui/schedule_android/schedule_android_page.dart';
 import 'package:duma/presentation/features/settings/view/ui/settings_ios/settings_ios_page.dart';
 import 'package:duma/presentation/features/sign_up/view/ui/sign_up_android/sign_up_android_page.dart';
@@ -44,7 +45,7 @@ class _SettingsAndroidPageState extends State<SettingsAndroidPage> {
           onPressed: () {
             Navigator.push(
               context,
-              MaterialPageRoute(builder: (context) => ScheduleAndroidPage()),
+              MaterialPageRoute(builder: (context) => PagesFrame()),
             );
           }, 
           icon: Icon(
@@ -89,14 +90,14 @@ class _SettingsAndroidPageState extends State<SettingsAndroidPage> {
                   ),
                 ),
                 Divider(),
-                SettingsOptionAndroid(
+                /*SettingsOptionAndroid(
                   title: 'Нативный интерфейс',
                   child: Switch(
                     value: _isSwitchEnabled,
                     onChanged: _onSwitchChanged,
                   ),
                 ),
-                Divider(),
+                Divider(),*/
                  SettingsOptionAndroid(
                   title: 'Выбрать язык',
                   child: TextButton(

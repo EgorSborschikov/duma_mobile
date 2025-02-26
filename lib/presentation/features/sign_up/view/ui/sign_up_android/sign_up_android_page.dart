@@ -26,7 +26,10 @@ class _SignUpAndroidPageState extends State<SignUpAndroidPage> {
               MaterialPageRoute(builder: (context) => SignInAndroidPage()),
             );
           }, 
-          icon: Icon(Icons.arrow_back),
+          icon: Icon(
+            Icons.arrow_back,
+            color: Color(0xFF5727CE),
+          ),
         ),
       ),
       body: SafeArea(

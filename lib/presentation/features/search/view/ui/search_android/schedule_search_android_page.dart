@@ -1,4 +1,5 @@
 import 'package:duma/presentation/common/components_for_android/custom_app_bar/custom_app_bar.dart';
+import 'package:duma/presentation/common/components_for_android/custom_bottom_navigation_bar.dart/pages_frame.dart';
 import 'package:duma/presentation/features/search/view/ui/search_android/ui/time__range_changer.dart';
 import 'package:duma/presentation/features/search/view/ui/search_android/ui/value_switcher_android.dart';
 import 'package:flutter/material.dart';
@@ -25,7 +26,7 @@ class _ScheduleSearchAndroidPageState extends State<ScheduleSearchAndroidPage> {
           onPressed: () {
             Navigator.push(
               context,
-              MaterialPageRoute(builder: (context) => ScheduleAndroidPage()),
+              MaterialPageRoute(builder: (context) => PagesFrame()),
             );
           }, 
           icon: Icon(

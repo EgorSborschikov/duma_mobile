@@ -1,4 +1,5 @@
 import 'package:duma/presentation/features/schedule/view/ui/schedule_android/schedule_android_page.dart';
+import 'package:duma/presentation/features/settings/view/ui/settings_android/settings_android_page.dart';
 import 'package:flutter/material.dart';
 
 import 'custom_bottom_navigation_bar.dart';
@@ -36,9 +37,7 @@ class _PagesFrameState extends State<PagesFrame> {
       case 1:
         return Center(child: Text('Favorites Screen'));
       case 2:
-        return Center(child: Text('Notifications Screen'));
-      case 3:
-        return Center(child: Text('Profile Screen'));
+        return SettingsAndroidPage();
       default:
         return Container();
     }

@@ -1,3 +1,4 @@
+import 'package:duma/presentation/features/profile/view/ui/profile_ios_page.dart/profile_ios_page.dart';
 import 'package:duma/presentation/features/schedule/view/ui/schedule_ios/schedule_ios_page.dart';
 import 'package:flutter/cupertino.dart';
 
@@ -52,9 +53,9 @@ class _CustomTabBarState extends State<CustomTabBar> {
               case 0:
                 return ScheduleIosPage();
               /*case 1:
-                return  //ChatsScreen();
+                return  //ChatsScreen();*/
               case 2:
-                return ; //ProfileScreen();*/
+                return ProfileIosPage(); 
               default:
                 return Center(child: Text('Content of tab $index'));
             }

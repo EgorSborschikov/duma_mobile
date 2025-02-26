@@ -22,8 +22,21 @@ class CustomNavigationDrawer extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
-                    Text('Дополнительные опции'),
-                    Icon(Icons.settings_applications_outlined)
+                    Text(
+                      'Дополнительные опции',
+                      style: TextStyle(
+                        fontFamily: 'Roboto',
+                        fontSize: 22,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white
+                      ),
+                    ),
+                    const SizedBox(height: 10),
+                    Icon(
+                      Icons.settings_applications_outlined,
+                      size: 50,
+                      color: Colors.white
+                    ),
                   ],
                 ),
               ),
@@ -68,20 +81,6 @@ class CustomNavigationDrawer extends StatelessWidget {
                       },
                       child: Icon(
                         Icons.bar_chart_sharp,
-                        color: Colors.white,
-                      ),
-                    ),
-                    const SizedBox(height: 10),
-                    DrawerOption(
-                      title: 'Настройки',
-                      onTap: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(builder: (context) => SettingsAndroidPage()),
-                          );
-                        },
-                      child: Icon(
-                        Icons.settings,
                         color: Colors.white,
                       ),
                     ),

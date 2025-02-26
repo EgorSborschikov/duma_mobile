@@ -1,10 +1,10 @@
 import 'dart:io';
 import 'package:duma/presentation/common/components_for_ios/custom_tab_bar/custom_tab_bar.dart';
 import 'package:duma/presentation/common/components_for_ios/custom_top_navigation_bar/custom_top_navigation_bar.dart';
+import 'package:duma/presentation/features/profile/view/ui/profile_ios_page.dart/profile_ios_page.dart';
 import 'package:duma/presentation/features/sign_in/view/ui/sign_in_ios/sign_in_ios_page.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import '../../../../schedule/view/ui/schedule_ios/schedule_ios_page.dart';
 import '../settings_android/settings_android_page.dart';
 import '../widgets/settings_items_ios_widgets/settings_option_ios.dart';
 import '../widgets/settings_items_ios_widgets/settings_items_ios.dart';
@@ -56,7 +56,7 @@ class _SettingsIosPageState extends State<SettingsIosPage> {
         onTap: () { 
           Navigator.push(
             context,
-            CupertinoPageRoute(builder: (context) => CustomTabBar()),
+            CupertinoPageRoute(builder: (context) => ProfileIosPage()),
           );
         }, 
       ),
@@ -74,13 +74,13 @@ class _SettingsIosPageState extends State<SettingsIosPage> {
                       onChanged: (bool value) {},
                     ),
                   ),
-                  SettingsOptionIos(
+                  /*SettingsOptionIos(
                     title: 'Нативный интерфейс',
                     child: CupertinoSwitch(
                       value: _isCupertinoSwitchEnabled,
                       onChanged: _onCupertinoSwitchChanged,
                     ),
-                  ),
+                  ),*/
                   SettingsOptionIos(
                     title: 'Язык интерфейса',
                     child: CupertinoPicker(
