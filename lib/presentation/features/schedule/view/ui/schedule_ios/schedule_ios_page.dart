@@ -9,11 +9,17 @@ class ScheduleIosPage extends StatelessWidget{
   Widget build(BuildContext context) {
     return CupertinoPageScaffold(
       backgroundColor: CupertinoColors.white,
-      navigationBar: CustomTopNavigationBar(
-        title: 'Расписание', 
-        onTap: () { 
-
-        },
+      navigationBar: CupertinoNavigationBar(
+        middle: Text(
+          'Расписание',
+          style: TextStyle(
+            fontFamily: 'San Francisco',
+            fontWeight: FontWeight.w700,
+            fontSize: 20,
+            color: CupertinoColors.black
+          ),
+        ),
+        automaticallyImplyLeading: false
       ),
       child: SafeArea(
         child: Padding(
